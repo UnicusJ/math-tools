@@ -3,13 +3,13 @@
 # thus we can use a recursive approach to find our solution
 
 
-def problem_five(factor_list):
+def lcm(factor_list):
     a = factor_list[0]
     b = factor_list[1]
     if len(factor_list) == 2:
         return (a*b)//gcd(a, b)
     else:
-        return (a * problem_five(factor_list[1:])) // gcd(a,problem_five(factor_list[1:]))
+        return (a * lcm(factor_list[1:])) // gcd(a,lcm(factor_list[1:]))
 
 
 def gcd(a,b):
@@ -19,3 +19,7 @@ def gcd(a,b):
         return a
     else:
         return gcd(b, a % b)
+
+
+def question_five():
+    return lcm([11,13,14,15,16,17,18,19,20])
