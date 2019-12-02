@@ -28,11 +28,6 @@ def power_set(s):
 
     s_copy = list(set(s))
 
-    # find maximum length of binary strings needed to generate all subset permutations
-    binary_size = 1
-    while len(s_copy) > binary_size:
-        binary_size = binary_size * 2
-
     power_set_list = []
 
     # power set has cardinality 2^(original set size)
