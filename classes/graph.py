@@ -1,21 +1,23 @@
 class Graph:
-    def __init__(self,dict):
-        self.data = dict
+    def __init__(self, edge_dict={}):
+        self.data = edge_dict
 
     def get_node_number(self):
         return len(self.data)
 
     def get_edge_number(self):
-        pass
+        return len(self.get_edge_list())
 
     def get_edge_list(self):
         edge_list = []
         for key in self.data:
             for value in self.data[key]:
-                print(sorted([key,value]))
-                if sorted([key, value]) not in edge_list:
+                if tuple(sorted([key, value])) not in edge_list:
                     edge_list.append((key, value))
         return edge_list
+
+    def get_vertex_list(self):
+        return [key for key in self.data]
 
     def get_neighbours(self, node):
         return self.data[node]
@@ -27,5 +29,6 @@ class Graph:
         self.data[node] = []
 
     def add_edge(self, n1, n2):
-        self.data[n1] += n2
-        self.data[n2] += n1
+        self.data[n1].append(n2)
+        self.data[n2].append(n1)
+
