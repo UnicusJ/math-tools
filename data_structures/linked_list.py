@@ -57,10 +57,36 @@ class LinkedList:
                 current = current.get_next()
             return node_list
 
+    def get_size(self):
+        """returns the size (number of nodes) in the list
+        returns -1 if the list contains a loop"""
+        if self.contains_loop():
+            return -1
+
+        size = 0
+        if self.head is None:
+            return 0
+        else:
+            current = self.head
+            while current is not None:
+                size += 1
+                current = current.get_next()
+            return size
+
+    def search(self, item):
+        """returns true or false based on whether a node with data=item is in the linked list"""
+        if self.head is None:
+            return False
+        else:
+            current = self.head
+            while current is not None:
+                if current.data == item:
+                    return True
+                else:
+                    current = current.get_next()
+            return False
 
 
-l = LinkedList()
-l.head = Node('a')
-l.head.next = Node('b')
+
 
 
