@@ -1,4 +1,13 @@
-from greatest_common_divisor import *
+def gcd(a,b):
+    """
+    see greatest_common_divisor.py
+    """
+    if b > a:
+        a, b = b, a
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
 
 
 def euler_totient(n):
@@ -21,7 +30,7 @@ def euler_totient(n):
 
     """
     count = 1
-    for x in range(2,n):
-        if gcd(n,x)==1:
-            count+=1
+    for x in range(2, n):
+        if gcd(n, x) == 1:
+            count += 1
     return count

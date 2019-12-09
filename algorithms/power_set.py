@@ -1,4 +1,13 @@
-from binary_converter import *
+def binary_convert(num):
+    """
+    see binary_converter.py
+    """
+    output = ''
+    while num != 0 and num != 1:
+        output = str(num%2) + output
+        num = num // 2
+    output = str(num) + output
+    return output
 
 
 def power_set(s):
@@ -45,7 +54,6 @@ def power_set(s):
         power_set_list.append(subset)
     power_set_list = sorted(power_set_list, key = lambda x: len(x))
     return power_set_list
-
 
 
 

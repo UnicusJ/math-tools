@@ -1,5 +1,16 @@
-from greatest_common_divisor import *
 import math
+
+
+def gcd(a,b):
+    """
+    see greatest_common_divisor.py
+    """
+    if b > a:
+        a, b = b, a
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
 
 
 def lcm(num_list):
